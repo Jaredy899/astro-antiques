@@ -67,7 +67,7 @@ import AddressLink from '../components/AddressLink.astro';
               <h3 class="font-medium text-gray-900 dark:text-white">Email:</h3>
               <a 
                 href="mailto:abingdonantiquesandmore@gmail.com" 
-                class="text-blue-600 dark:text-blue-400 hover:underline transition-colors"
+                class="location-email text-blue-600 dark:text-blue-400 hover:underline transition-colors"
               >
                 abingdonantiquesandmore@gmail.com
               </a>
@@ -134,4 +134,21 @@ import AddressLink from '../components/AddressLink.astro';
   </main>
 
   <Footer />
-</Layout> 
+</Layout>
+
+<style>
+  /* Target very small screens like iPhone SE and Galaxy S8+ */
+  @media screen and (max-width: 390px) {
+    .location-email {
+      font-size: 0.75rem !important;
+      line-height: 1rem !important;
+    }
+  }
+  
+  @media screen and (max-width: 360px) {
+    .location-email {
+      font-size: 0.7rem !important;
+      line-height: 0.9rem !important;
+    }
+  }
+</style>
