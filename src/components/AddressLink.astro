@@ -1,10 +1,10 @@
 ---
 interface Props {
-  address: string;
   class?: string;
 }
 
-const { address, class: className = "text-logo-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" } = Astro.props;
+const { class: className = "text-logo-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" } = Astro.props;
+const address = "227 W Main St, Abingdon, VA 24210";
 ---
 
 <a 
