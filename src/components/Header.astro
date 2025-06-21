@@ -2,6 +2,7 @@
 import LogoHeader from "./LogoHeader.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import AddressLink from "./AddressLink.astro";
+import { getStoreStatus } from "./StoreStatus.astro";
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -16,6 +17,9 @@ const isActive = (href: string) => {
   }
   return currentPath.startsWith(href);
 };
+
+// Get store status
+const storeStatus = getStoreStatus();
 ---
 
 <header class="w-full bg-white dark:bg-gray-900 shadow-logo dark:shadow-gray-800 transition-colors duration-200">
@@ -43,14 +47,16 @@ const isActive = (href: string) => {
           </AddressLink>
         </div>
 
-        {/* Hours - Second line on mobile, inline on desktop */}
-        <div class="flex items-center gap-1 text-logo-700 dark:text-gray-300">
+        {/* Store Status - Second line on mobile, inline on desktop */}
+        <div class={`flex items-center gap-1 font-medium ${storeStatus.statusClass}`}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
             <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
           </svg>
-          <span class="hidden sm:inline">Mon-Sat 10-6, Sun 1-4</span>
-          <span class="sm:hidden">Mon-Sat 10-6, Sun 1-4</span>
+          <span>{storeStatus.statusText}</span>
+          <span class="hidden sm:inline text-xs text-gray-500 dark:text-gray-400 ml-1">
+            ({storeStatus.hoursText})
+          </span>
         </div>
       </div>
     </div>
