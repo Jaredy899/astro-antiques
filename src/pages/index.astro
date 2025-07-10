@@ -2,9 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ImageGallery from '../components/ImageGallery.astro';
 import AddressLink from '../components/AddressLink.astro';
-import { Image } from 'astro:assets';
 
 // Hardcoded image URLs
 const galleryImages = [
@@ -16,104 +14,175 @@ const galleryImages = [
   "https://xfcpn2nyfb.ufs.sh/f/LKapUqCN3UFssWQENxRiwGqRQXjaOTYzH816lIkchyoC9txN",
   "https://xfcpn2nyfb.ufs.sh/f/LKapUqCN3UFsED72c492bga4hAVdszcfGZt3vDSkFJe8rKwR",
   "https://xfcpn2nyfb.ufs.sh/f/LKapUqCN3UFsd1SLKG2VFBmf9HhQVLJpzkqGNjtM6ZlxcgPW",
-
 ];
 ---
 
 <Layout title="Abingdon Antiques - Home">
   <Header />
   
-  <main>
-    <!-- Hero Section -->
-    <section class="py-8 bg-white dark:bg-gray-900 transition-colors duration-200">
-      <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-          <div class="relative h-[80vh] min-h-[600px] w-full rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src="https://lyiiw7a2jaaujwge.public.blob.vercel-storage.com/hero-uQtELmzMu9sLKrzS0Xfhsb0cuc7Jl5.webp"
-              alt="Abingdon Antiques and More Store Front"
-              width={1920}
-              height={1080}
-              class="absolute inset-0 w-full h-full object-cover md:object-center object-[75%_center]"
-              loading="eager"
-              decoding="async"
-              quality={90}
-            />
-          </div>
+  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <!-- Welcome Section -->
+    <section class="py-4 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          Discover unique antiques and collectibles in the heart of historic Abingdon, Virginia
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <AddressLink class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            227 W Main St, Abingdon, VA
+          </AddressLink>
+          <a href="tel:276-477-1515" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Call Us
+          </a>
         </div>
       </div>
     </section>
 
-     {/* New Location Announcement */}
-     <section class="py-8 bg-white dark:bg-gray-900 transition-colors duration-200">
-      <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-          <div class="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-lg bg-white dark:bg-gray-800">
-            <div class="grid items-center gap-8 md:grid-cols-2">
-              <div>
-                <h2 class="text-3xl font-serif font-bold mb-6 text-gray-900 dark:text-white">
-                  Our New Home!
-                </h2>
-                <p class="mb-6 text-lg text-gray-600 dark:text-gray-300">
-                  <span class="font-semibold">We are now exclusively located at:</span><br />
-                  <AddressLink class="text-blue-600 dark:text-blue-400 hover:underline">
-                    227 W Main St, Abingdon, VA 24210
-                  </AddressLink>
-                </p>
-                <p class="text-gray-600 dark:text-gray-300">
-                  We have successfully completed our move to our new location! Come visit us at our beautiful new space in the heart of downtown Abingdon.
-                </p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img 
-                  src="https://xfcpn2nyfb.ufs.sh/f/LKapUqCN3UFsWShw4AnAoZYFIrpQJyB8wcDh0eKmCV6iTnMg" 
-                  alt="Our new location at 227 W Main St" 
-                  class="rounded object-cover w-full h-auto"
-                  width={500}
-                  height={300}
-                  loading="lazy"
-                  decoding="async"
-                />
+    <!-- Image Carousel -->
+    <section class="py-8 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-serif font-bold text-center mb-6 text-gray-900 dark:text-white">
+          Featured Items
+        </h2>
+        <div class="relative">
+          <div id="carousel" class="overflow-hidden rounded-lg shadow-lg">
+            <div id="carousel-container" class="flex transition-transform duration-300 ease-in-out">
+              {galleryImages.map((image, index) => (
+                <div class="carousel-slide w-full flex-shrink-0">
+                  <img
+                    src={image}
+                    alt={`Featured item ${index + 1}`}
+                    class="w-full h-64 md:h-96 object-cover cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    data-image={image}
+                    data-index={index}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Lightbox -->
+          <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+            <div class="relative w-full h-full flex items-center justify-center">
+              <img
+                id="lightbox-image"
+                src=""
+                alt="Full size image"
+                class="max-w-full max-h-[90vh] object-contain"
+              />
+              
+              <!-- Close button -->
+              <button
+                id="lightbox-close"
+                class="absolute top-4 right-4 text-white text-4xl p-2 z-10 hover:bg-white/20 rounded-full transition-colors duration-200"
+                aria-label="Close lightbox"
+              >
+                ×
+              </button>
+              
+              <!-- Navigation buttons -->
+              <button
+                id="lightbox-prev"
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl p-2 z-10 hover:bg-white/20 rounded-full transition-colors duration-200"
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <button
+                id="lightbox-next"
+                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl p-2 z-10 hover:bg-white/20 rounded-full transition-colors duration-200"
+                aria-label="Next image"
+              >
+                ›
+              </button>
+              
+              <!-- Image counter -->
+              <div id="lightbox-counter" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg bg-black/50 px-3 py-1 rounded-full">
+                1 / {galleryImages.length}
               </div>
             </div>
           </div>
+          
+          <!-- Carousel Navigation -->
+          <button id="carousel-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-200" aria-label="Previous image">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button id="carousel-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-200" aria-label="Next image">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          
+          <!-- Carousel Indicators -->
+          <div id="carousel-indicators" class="flex justify-center mt-4 space-x-2">
+            {galleryImages.map((_, index) => (
+              <button 
+                class="carousel-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-200"
+                data-index={index}
+                aria-label={`Go to image ${index + 1}`}
+              ></button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
-    {/* Social Media Section */}
-    <section class="py-8 bg-white dark:bg-gray-900 transition-colors duration-200">
-      <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-          <div class="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-lg bg-white dark:bg-gray-800">
-            <div class="text-center">
-              <h2 class="text-3xl font-serif font-bold mb-6 text-gray-900 dark:text-white">Stay Connected!</h2>
-              <p class="text-gray-600 dark:text-gray-300 mb-8">
-                Follow us on social media for the latest updates, new arrivals, pictures, and videos!
+    <!-- Store Information -->
+    <section class="py-8 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <!-- Hours -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-serif font-bold mb-4 text-gray-900 dark:text-white">Store Hours</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between">
+                <span class="font-medium text-gray-900 dark:text-white">Monday - Saturday</span>
+                <span class="text-gray-600 dark:text-gray-300">10:00 AM - 6:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-medium text-gray-900 dark:text-white">Sunday</span>
+                <span class="text-gray-600 dark:text-gray-300">1:00 PM - 4:00 PM</span>
+              </div>
+            </div>
+            <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <p class="text-sm text-yellow-800 dark:text-yellow-200">
+                Closed on major holidays. Call ahead for holiday hours.
               </p>
-              <div class="flex flex-wrap justify-center gap-4">
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61551934216826" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 rounded-md bg-[#1877F2] px-5 py-2.5 text-white shadow-sm transition-all hover:bg-[#166FE5] focus:ring-2 focus:ring-[#1877F2]/50"
-                >
-                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                  Facebook
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-serif font-bold mb-4 text-gray-900 dark:text-white">Contact Us</h3>
+            <div class="space-y-3">
+              <div>
+                <p class="font-medium text-gray-900 dark:text-white">Phone:</p>
+                <a href="tel:276-477-1515" class="text-blue-600 dark:text-blue-400 hover:underline">
+                  276-477-1515
                 </a>
-                <a 
-                  href="https://www.instagram.com/abingdonantiques/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 rounded-md bg-[#E4405F] px-5 py-2.5 text-white shadow-sm transition-all hover:bg-[#D63256] focus:ring-2 focus:ring-[#E4405F]/50"
-                >
-                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                  Instagram
+              </div>
+              <div>
+                <p class="font-medium text-gray-900 dark:text-white">Email:</p>
+                <a href="mailto:abingdonantiquesandmore@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base">
+                  abingdonantiquesandmore@gmail.com
                 </a>
+              </div>
+              <div>
+                <p class="font-medium text-gray-900 dark:text-white">Address:</p>
+                <AddressLink class="text-blue-600 dark:text-blue-400 hover:underline">
+                  227 W Main St<br>Abingdon, VA 24210
+                </AddressLink>
               </div>
             </div>
           </div>
@@ -122,42 +191,264 @@ const galleryImages = [
     </section>
 
     <!-- About Section -->
-    <section class="py-8 bg-white dark:bg-gray-900 transition-colors duration-200">
-      <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-          <div class="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-lg bg-white dark:bg-gray-800">
-            <div class="max-w-3xl mx-auto text-center">
-              <h2 class="text-3xl font-serif font-bold mb-6 text-gray-900 dark:text-white">Welcome to Abingdon Antiques and More</h2>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Abingdon Antiques and More Vendor Mall brings together a community of experienced dealers, each bringing their unique expertise and carefully curated inventory.
-              </p>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Whether you're looking for fine furniture, rare collectibles, or unique home decor, you'll find something special at Abingdon Antiques and More.
-              </p>
-              <p class="text-gray-600 dark:text-gray-300 mb-8">
-                Visit us today and discover why we're becoming the region's premier destination for antiques and collectibles.
-              </p>
-              <a href="/information" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md transition-colors duration-200">
-                Visit Our Store
-              </a>
-            </div>
-          </div>
+    <section class="py-8 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-serif font-bold mb-6 text-gray-900 dark:text-white">
+          About Our Store
+        </h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+          Abingdon Antiques and More Vendor Mall brings together a community of experienced dealers, 
+          each bringing their unique expertise and carefully curated inventory. Whether you're looking 
+          for fine furniture, rare collectibles, or unique home decor, you'll find something special 
+          at our store.
+        </p>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+          Visit us today and discover why we're becoming the region's premier destination for 
+          antiques and collectibles.
+        </p>
+        <div class="mt-6 p-4 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <p class="text-gray-700 dark:text-gray-200 font-medium">
+            Vendor space may be available! Call us at 
+            <a href="tel:276-477-1515" class="text-blue-600 dark:text-blue-400 hover:underline">276-477-1515</a> 
+            to inquire about becoming a vendor.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Featured Items -->
-    <section class="py-8 bg-white dark:bg-gray-900 transition-colors duration-200">
-      <div class="container mx-auto px-4">
-        <ImageGallery 
-          images={galleryImages}
-          title="Featured Items"
-          columns={2}
-          aspectRatio="square"
-        />
+
+
+    <!-- Map Section -->
+    <section class="py-8 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-serif font-bold text-center mb-6 text-gray-900 dark:text-white">
+          Find Us
+        </h2>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.835434509374!2d-81.97732168480109!3d36.70993598010572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88549183d6d8f777%3A0x5d08d6275db3b865!2s227%20W%20Main%20St%2C%20Abingdon%2C%20VA%2024210!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"
+            class="w-full"
+          ></iframe>
+        </div>
       </div>
     </section>
   </main>
 
   <Footer />
-</Layout> 
+</Layout>
+
+<script>
+  // Carousel functionality
+  const carousel = document.getElementById('carousel-container');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  const prevButton = document.getElementById('carousel-prev');
+  const nextButton = document.getElementById('carousel-next');
+  
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  
+  function updateCarousel() {
+    if (carousel) {
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+      if (index === currentSlide) {
+        indicator.classList.add('bg-blue-600');
+        indicator.classList.remove('bg-gray-300');
+      } else {
+        indicator.classList.remove('bg-blue-600');
+        indicator.classList.add('bg-gray-300');
+      }
+    });
+  }
+  
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+  
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+  
+  // Event listeners
+  nextButton?.addEventListener('click', nextSlide);
+  prevButton?.addEventListener('click', prevSlide);
+  
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      currentSlide = index;
+      updateCarousel();
+    });
+  });
+  
+  // Auto-advance carousel
+  let autoAdvance = setInterval(nextSlide, 5000);
+  
+  // Pause auto-advance on hover
+  carousel?.addEventListener('mouseenter', () => {
+    clearInterval(autoAdvance);
+  });
+  
+  carousel?.addEventListener('mouseleave', () => {
+    autoAdvance = setInterval(nextSlide, 5000);
+  });
+  
+  // Touch/swipe support for mobile
+  let startX = 0;
+  let endX = 0;
+  
+  carousel?.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+  
+  carousel?.addEventListener('touchend', (e) => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = startX - endX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+  
+  // Initialize carousel
+  updateCarousel();
+  
+  // Lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  const carouselImages = document.querySelectorAll('.carousel-slide img');
+  
+  let lightboxCurrentIndex = 0;
+  
+  function showLightbox(index: number) {
+    if (lightbox && lightboxImage && carouselImages[index]) {
+      lightboxCurrentIndex = index;
+      const imageSrc = carouselImages[index].getAttribute('data-image');
+      if (lightboxImage instanceof HTMLImageElement && imageSrc) {
+        lightboxImage.src = imageSrc;
+      }
+      
+      // Update counter
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${index + 1} / ${carouselImages.length}`;
+      }
+      
+      // Show lightbox
+      lightbox.classList.remove('hidden');
+      setTimeout(() => {
+        lightbox.classList.add('opacity-100');
+      }, 10);
+      
+      // Pause carousel auto-advance
+      clearInterval(autoAdvance);
+    }
+  }
+  
+  function hideLightbox() {
+    if (lightbox) {
+      lightbox.classList.remove('opacity-100');
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+      }, 300);
+      
+      // Resume carousel auto-advance
+      autoAdvance = setInterval(nextSlide, 5000);
+    }
+  }
+  
+  function nextLightboxImage() {
+    const nextIndex = (lightboxCurrentIndex + 1) % carouselImages.length;
+    showLightbox(nextIndex);
+  }
+  
+  function prevLightboxImage() {
+    const prevIndex = (lightboxCurrentIndex - 1 + carouselImages.length) % carouselImages.length;
+    showLightbox(prevIndex);
+  }
+  
+  // Event listeners for lightbox
+  carouselImages.forEach((image, index) => {
+    image.addEventListener('click', () => {
+      showLightbox(index);
+    });
+  });
+  
+  lightboxClose?.addEventListener('click', hideLightbox);
+  lightboxPrev?.addEventListener('click', prevLightboxImage);
+  lightboxNext?.addEventListener('click', nextLightboxImage);
+  
+  // Close lightbox when clicking anywhere except navigation buttons
+  lightbox?.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    // Don't close if clicking on navigation buttons or the image itself
+    if (target.id === 'lightbox-prev' || 
+        target.id === 'lightbox-next' || 
+        target.id === 'lightbox-close' ||
+        target.closest('#lightbox-prev') ||
+        target.closest('#lightbox-next') ||
+        target.closest('#lightbox-close')) {
+      return;
+    }
+    // Close for any other click (background, image, counter, etc.)
+    hideLightbox();
+  });
+  
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox?.classList.contains('hidden')) {
+      hideLightbox();
+    }
+  });
+  
+  // Lightbox keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('hidden')) {
+      if (e.key === 'ArrowLeft') {
+        prevLightboxImage();
+      } else if (e.key === 'ArrowRight') {
+        nextLightboxImage();
+      }
+    }
+  });
+</script>
+
+<style>
+  .carousel-slide {
+    min-width: 100%;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .carousel-slide img {
+      height: 16rem;
+    }
+  }
+  
+  /* Ensure smooth transitions */
+  #carousel-container {
+    will-change: transform;
+  }
+</style> 
