@@ -36,17 +36,7 @@ const { title, description = "Abingdon Antiques - Your Premier Source for Fine A
 </html>
 
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
+
 	html {
 		font-family: 'Montserrat', system-ui, sans-serif;
 		background: #f6f6f6;
@@ -76,45 +66,5 @@ const { title, description = "Abingdon Antiques - Your Premier Source for Fine A
 		color: #D1D5DB;
 	}
 
-	/* View Transitions */
-	::view-transition-old(root),
-	::view-transition-new(root) {
-		animation: none;
-		mix-blend-mode: normal;
-	}
 
-	::view-transition-old(root) {
-		z-index: 1;
-		animation: fade-out 0.3s ease-out;
-	}
-
-	::view-transition-new(root) {
-		z-index: 2;
-		animation: fade-in 0.3s ease-out;
-	}
-
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	@keyframes fade-out {
-		from {
-			opacity: 1;
-		}
-		to {
-			opacity: 0;
-		}
-	}
-
-	.dark::view-transition-old(root) {
-		z-index: 1;
-	}
-	.dark::view-transition-new(root) {
-		z-index: 2;
-	}
 </style>
