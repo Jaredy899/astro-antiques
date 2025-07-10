@@ -60,25 +60,7 @@
     initializeTheme();
   });
 
-  // Initialize after view transitions
-  document.addEventListener('astro:page-load', () => {
-    initializeTheme();
-  });
 
-  // Initialize theme before view transition
-  document.addEventListener('astro:before-preparation', () => {
-    initializeTheme();
-  });
-
-  // Ensure theme persists during view transition
-  document.addEventListener('astro:after-swap', () => {
-    const theme = getTheme();
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  });
 </script>
 
 <slot /> 
