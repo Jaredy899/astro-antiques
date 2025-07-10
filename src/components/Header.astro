@@ -1,5 +1,5 @@
 ---
-import LogoHeader from "./LogoHeader.astro";
+import { Image } from 'astro:assets';
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
@@ -10,9 +10,21 @@ import ThemeToggle from "./ThemeToggle.astro";
   </div>
 
   <div class="mx-auto max-w-6xl px-4 py-3 md:py-4">
-    {/* Logo Header */}
+    {/* Logo */}
     <div class="flex justify-center mb-3 md:mb-4">
-      <LogoHeader />
+      <div class="w-[200px] md:w-[300px]">
+        <div class="bg-white dark:bg-gray-900 rounded-lg shadow-logo dark:shadow-gray-800 border border-logo-100 dark:border-gray-700">
+          <Image
+            src="/images/logo.webp"
+            alt="Abingdon Antiques and More"
+            width={360}
+            height={105}
+            class="w-full h-auto object-contain"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </header> 
