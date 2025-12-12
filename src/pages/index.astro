@@ -30,20 +30,25 @@ const galleryImages = [
   
   <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200" role="main" id="main-content">
     <!-- Welcome Section -->
-    <section class="py-4 px-4 sm:px-6">
+    <section class="py-4 px-4 sm:px-6 relative">
       <div class="max-w-4xl mx-auto text-center">
         <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
           Discover unique antiques and collectibles in the heart of historic Abingdon, Virginia
         </p>
+        <div class="flex justify-center gap-2 mb-4">
+          <span class="text-2xl">🎄</span>
+          <span class="text-2xl">✨</span>
+          <span class="text-2xl">🎁</span>
+        </div>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <AddressLink class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+          <AddressLink class="inline-flex items-center gap-2 bg-christmas-green hover:bg-christmas-darkGreen text-white px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
             227 W Main St, Abingdon, VA
           </AddressLink>
-          <a href="tel:276-477-1515" class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg transition-colors duration-200">
+          <a href="tel:276-477-1515" class="inline-flex items-center gap-2 bg-christmas-red hover:bg-red-800 text-white px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
             </svg>
@@ -177,9 +182,9 @@ const galleryImages = [
                 <span class="text-gray-600 dark:text-gray-300">1:00 PM - 4:00 PM</span>
               </div>
             </div>
-            <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-              <p class="text-sm text-yellow-800 dark:text-yellow-200">
-                Closed on major holidays. Call ahead for holiday hours.
+            <div class="mt-4 p-3 bg-christmas-gold/20 dark:bg-christmas-gold/30 rounded-lg border border-christmas-gold/30">
+              <p class="text-sm text-christmas-darkGreen dark:text-christmas-gold font-medium">
+                🎅 Closed on major holidays. Call ahead for holiday hours.
               </p>
             </div>
           </div>
@@ -190,19 +195,19 @@ const galleryImages = [
             <div class="space-y-3">
               <div>
                 <p class="font-medium text-gray-900 dark:text-white">Phone:</p>
-                <a href="tel:276-477-1515" class="text-blue-700 dark:text-blue-300 hover:underline">
+                <a href="tel:276-477-1515" class="text-christmas-red dark:text-red-400 hover:underline">
                   276-477-1515
                 </a>
               </div>
               <div>
                 <p class="font-medium text-gray-900 dark:text-white">Email:</p>
-                <a href="mailto:abingdonantiquesandmore@gmail.com" class="text-blue-700 dark:text-blue-300 hover:underline text-sm sm:text-base">
+                <a href="mailto:abingdonantiquesandmore@gmail.com" class="text-christmas-red dark:text-red-400 hover:underline text-sm sm:text-base">
                   abingdonantiquesandmore@gmail.com
                 </a>
               </div>
               <div>
                 <p class="font-medium text-gray-900 dark:text-white">Address:</p>
-                <AddressLink class="text-blue-700 dark:text-blue-300 hover:underline">
+                <AddressLink class="text-christmas-red dark:text-red-400 hover:underline">
                   227 W Main St<br>Abingdon, VA 24210
                 </AddressLink>
               </div>
@@ -228,10 +233,10 @@ const galleryImages = [
           Visit us today and discover why we're becoming the region's premier destination for 
           antiques and collectibles.
         </p>
-        <div class="mt-6 p-4 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+        <div class="mt-6 p-4 bg-white dark:bg-gray-700 rounded-lg shadow-md border-l-4 border-christmas-green">
           <p class="text-gray-700 dark:text-gray-200 font-medium">
             Vendor space may be available! Call us at 
-            <a href="tel:276-477-1515" class="text-blue-700 dark:text-blue-300 hover:underline">276-477-1515</a> 
+            <a href="tel:276-477-1515" class="text-christmas-red dark:text-red-400 hover:underline">276-477-1515</a> 
             to inquire about becoming a vendor.
           </p>
         </div>
@@ -284,11 +289,11 @@ const galleryImages = [
     // Update indicators
     indicators.forEach((indicator, index) => {
       if (index === currentSlide) {
-        indicator.classList.add('bg-blue-600');
+        indicator.classList.add('bg-christmas-red');
         indicator.classList.remove('bg-gray-300');
         indicator.setAttribute('aria-selected', 'true');
       } else {
-        indicator.classList.remove('bg-blue-600');
+        indicator.classList.remove('bg-christmas-red');
         indicator.classList.add('bg-gray-300');
         indicator.setAttribute('aria-selected', 'false');
       }

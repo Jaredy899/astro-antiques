@@ -2,12 +2,19 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-logo-200 dark:border-gray-700 bg-logo-50 dark:bg-gray-800 py-8 text-logo-700 dark:text-gray-300 transition-colors duration-200" role="contentinfo">
+<footer class="border-t-2 border-christmas-green/30 dark:border-christmas-green/50 bg-logo-50 dark:bg-gray-800 py-8 text-logo-700 dark:text-gray-300 transition-colors duration-200 relative" role="contentinfo">
+  {/* Christmas decorative border */}
+  <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-christmas-green via-christmas-red to-christmas-gold"></div>
+  
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
     <div class="text-center">
       {/* Social Media */}
       <div class="mb-8">
-        <h3 class="mb-6 text-2xl font-serif font-bold text-logo-800 dark:text-white">Follow Us</h3>
+        <h3 class="mb-6 text-2xl font-serif font-bold text-logo-800 dark:text-white flex items-center justify-center gap-2">
+          <span>🎄</span>
+          Follow Us
+          <span>🎄</span>
+        </h3>
         <p class="mb-6 text-lg text-gray-600 dark:text-gray-300">
           Stay connected for the latest updates, new arrivals, and special finds!
         </p>
@@ -93,7 +100,12 @@ const currentYear = new Date().getFullYear();
 
       {/* Copyright */}
       <div class="border-t border-logo-200 dark:border-gray-700 pt-6">
-        <p>&copy; {currentYear} Abingdon Antiques and More. All rights reserved.</p>
+        <p class="flex items-center justify-center gap-2">
+          <span>✨</span>
+          &copy; {currentYear} Abingdon Antiques and More. All rights reserved.
+          <span>✨</span>
+        </p>
+        <p class="mt-2 text-sm text-christmas-red dark:text-red-400">Happy Holidays! 🎁</p>
       </div>
     </div>
   </div>

@@ -3,7 +3,10 @@ import { Image } from 'astro:assets';
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header class="w-full bg-white dark:bg-gray-900 shadow-logo dark:shadow-gray-800 transition-colors duration-200" role="banner">
+<header class="w-full bg-white dark:bg-gray-900 shadow-logo dark:shadow-gray-800 transition-colors duration-200 relative overflow-hidden" role="banner">
+  {/* Christmas decorative border */}
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-christmas-green via-christmas-red to-christmas-gold"></div>
+  
   {/* Theme Toggle - Fixed Position */}
   <div class="fixed right-4 top-4 z-50">
     <ThemeToggle />
@@ -13,7 +16,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     {/* Logo */}
     <div class="flex justify-center mb-3 md:mb-4">
       <div class="w-[200px] md:w-[300px]">
-        <div class="bg-white dark:bg-gray-900 rounded-lg shadow-logo dark:shadow-gray-800 border border-logo-100 dark:border-gray-700">
+        <div class="bg-white dark:bg-gray-900 rounded-lg shadow-logo dark:shadow-gray-800 border-2 border-christmas-green/30 dark:border-christmas-green/50">
           <Image
             src="/images/logo.webp"
             alt="Abingdon Antiques and More"
