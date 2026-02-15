@@ -1,4 +1,24 @@
 /* Abingdon Antiques – match hugo-antiques theme */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Prevent any horizontal scroll at any viewport size */
+html {
+  overflow-x: hidden; /* fallback for older browsers */
+  overflow-x: clip;
+  overflow-y: auto;
+}
+body.antiques-body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+body.antiques-body > * {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
 :root {
   --font-sans: 'Montserrat', system-ui, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -55,6 +75,7 @@ html.dark::before {
 body.antiques-body {
   margin: 0;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -82,6 +103,7 @@ body.antiques-body {
 
 .site-header {
   width: 100%;
+  max-width: 100%;
   background: var(--card-bg);
   box-shadow: var(--shadow);
   border-bottom: 1px solid var(--card-border);
@@ -98,16 +120,14 @@ body.antiques-body {
   padding: 0.6rem;
   color: var(--ink-muted);
   background: transparent;
-  border: 1px solid var(--card-border);
-  border-radius: 50%;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color var(--transition), background var(--transition), transform var(--transition);
+  transition: color var(--transition), transform var(--transition);
 }
 .theme-toggle:hover {
   color: var(--ink);
-  background: var(--cream-dark);
   transform: scale(1.05);
 }
 .theme-icon {
@@ -120,8 +140,11 @@ body.antiques-body {
 }
 .header-inner {
   max-width: 72rem;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
 }
 .logo-wrap {
   display: flex;
@@ -144,12 +167,17 @@ body.antiques-body {
 
 .main-content {
   flex: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
   padding: 0 1rem 3rem;
 }
 .container {
   max-width: 56rem;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 }
 .section-title {
   font-family: var(--font-serif);
@@ -232,26 +260,34 @@ html.dark .btn-phone:hover {
 
 .carousel-section {
   padding: 2rem 0;
+  overflow: hidden;
 }
 .carousel-wrapper {
   position: relative;
+  min-width: 0;
+  overflow: hidden;
 }
 .carousel {
   overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-hover);
   background: var(--cream-dark);
+  width: 100%;
+  max-width: 100%;
 }
 .carousel-track {
   display: flex;
   transition: transform 0.3s ease-in-out;
+  min-width: 0;
 }
 .carousel-slide {
   min-width: 100%;
+  width: 100%;
   flex-shrink: 0;
 }
 .carousel-img {
   width: 100%;
+  max-width: 100%;
   height: 16rem;
   object-fit: cover;
   cursor: pointer;
@@ -433,6 +469,8 @@ html.dark .btn-phone:hover {
   color: var(--primary);
   text-decoration: none;
   transition: color var(--transition);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .info-card-body a:hover {
   color: var(--primary-light);
@@ -475,7 +513,7 @@ html.dark .hours-note {
   color: var(--ink-muted);
   line-height: 1.7;
   margin: 0 0 1rem;
-  max-width: 42rem;
+  max-width: min(42rem, 100%);
   margin-left: auto;
   margin-right: auto;
 }
@@ -484,6 +522,7 @@ html.dark .hours-note {
 }
 .vendor-cta {
   display: inline-block;
+  max-width: 100%;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
@@ -494,6 +533,8 @@ html.dark .hours-note {
   margin: 0;
   color: var(--ink);
   font-size: 0.9375rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .vendor-cta a {
   color: var(--primary);
@@ -511,10 +552,12 @@ html.dark .hours-note {
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--cream-dark);
+  max-width: 100%;
 }
 .map-iframe {
   display: block;
   width: 100%;
+  max-width: 100%;
 }
 
 .site-footer {
@@ -524,11 +567,18 @@ html.dark .hours-note {
   padding: 2rem 1rem;
   margin-top: auto;
   transition: background var(--transition), color var(--transition);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .footer-inner {
   max-width: 72rem;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
+  padding: 0 1rem;
   text-align: center;
+  box-sizing: border-box;
 }
 .footer-heading {
   font-family: var(--font-serif);
@@ -540,7 +590,7 @@ html.dark .hours-note {
 .footer-tagline {
   margin: 0 0 1.5rem;
   font-size: 1rem;
-  max-width: 28rem;
+  max-width: min(28rem, 100%);
   margin-left: auto;
   margin-right: auto;
 }
@@ -548,8 +598,10 @@ html.dark .hours-note {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
-  max-width: 28rem;
+  max-width: min(28rem, 100%);
+  width: 100%;
   margin: 0 auto 2rem;
+  box-sizing: border-box;
 }
 @media (min-width: 640px) {
   .social-grid {
