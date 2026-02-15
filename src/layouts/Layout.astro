@@ -3,6 +3,7 @@ import ThemeProvider from '../components/ThemeProvider.astro';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro';
 import '../styles/tailwind.css';
+import '../styles/antiques.css';
 
 interface Props {
 	title: string;
@@ -26,46 +27,22 @@ const { title, description = "Abingdon Antiques - Your Premier Source for Fine A
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<!-- Apply saved theme before first paint so no dark flash; default = light -->
+		<script is:inline>
+			try {
+				var s = localStorage.getItem('theme');
+				if (s === 'dark') document.documentElement.classList.add('dark');
+				else document.documentElement.classList.remove('dark');
+			} catch (_) {
+				document.documentElement.classList.remove('dark');
+			}
+		</script>
 		<ClientRouter />
 		<Analytics />
 	</head>
-	<body class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+	<body class="antiques-body">
 		<ThemeProvider>
 			<slot />
 		</ThemeProvider>
 	</body>
 </html>
-
-<style is:global>
-
-	html {
-		font-family: 'Montserrat', system-ui, sans-serif;
-		background: #f6f6f6;
-	}
-	html.dark {
-		background: #111827;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-
-	/* Global link styles for unclassed links */
-	a:not([class]) {
-		color: #8B4513;
-		text-decoration: underline;
-		text-underline-offset: 4px;
-	}
-	.dark a:not([class]) {
-		color: #D1D5DB;
-	}
-
-
-</style>
