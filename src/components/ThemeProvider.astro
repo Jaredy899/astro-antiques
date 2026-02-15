@@ -7,7 +7,7 @@
     }
   }
 
-  // Get the current theme
+  // Get the current theme (default light to match hugo-antiques)
   const getTheme = () => {
     if (typeof localStorage !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
@@ -15,7 +15,7 @@
         return savedTheme;
       }
     }
-    return 'dark'; // Default to dark theme
+    return 'light';
   };
 
   // Initialize theme

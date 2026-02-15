@@ -1,13 +1,13 @@
 <button
   id="theme-toggle"
-  class="cursor-pointer p-2.5 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+  class="theme-toggle"
   onclick="window.toggleTheme()"
   aria-label="Toggle theme"
   type="button"
 >
   <svg
     id="theme-toggle-dark-icon"
-    class="hidden h-5 w-5"
+    class="theme-icon"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@
   </svg>
   <svg
     id="theme-toggle-light-icon"
-    class="hidden h-5 w-5"
+    class="theme-icon theme-icon-hidden"
     fill="currentColor"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
@@ -43,11 +43,11 @@
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
     if (isDark) {
-      themeToggleLightIcon?.classList.remove('hidden');
-      themeToggleDarkIcon?.classList.add('hidden');
+      themeToggleLightIcon?.classList.remove('theme-icon-hidden');
+      themeToggleDarkIcon?.classList.add('theme-icon-hidden');
     } else {
-      themeToggleDarkIcon?.classList.remove('hidden');
-      themeToggleLightIcon?.classList.add('hidden');
+      themeToggleDarkIcon?.classList.remove('theme-icon-hidden');
+      themeToggleLightIcon?.classList.add('theme-icon-hidden');
     }
   };
 
