@@ -7,7 +7,7 @@
     }
   }
 
-  // Get the current theme (default light to match hugo-antiques)
+  // Get the current theme (default dark when nothing saved)
   const getTheme = () => {
     if (typeof localStorage !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
@@ -15,7 +15,7 @@
         return savedTheme;
       }
     }
-    return 'light';
+    return 'dark';
   };
 
   // Initialize theme
@@ -25,13 +25,13 @@
     return theme;
   };
 
-  // Listen for system theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  // Without an explicit choice, stay on the site default (dark); do not follow OS theme
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (!localStorage.getItem('theme')) {
-      document.documentElement.classList.toggle('dark', e.matches);
-      window.dispatchEvent(new CustomEvent('themeChange', { 
-        detail: { theme: e.matches ? 'dark' : 'light' } 
-      }));
+      document.documentElement.classList.add('dark');
+      window.dispatchEvent(
+        new CustomEvent('themeChange', { detail: { theme: 'dark' } })
+      );
     }
   });
 
