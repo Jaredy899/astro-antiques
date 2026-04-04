@@ -25,14 +25,14 @@ const { title, description = "Abingdon Antiques - Your Premier Source for Fine A
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-		<!-- Apply saved theme before first paint so no dark flash; default = light -->
+		<!-- Apply saved theme before first paint; default = dark unless user chose light -->
 		<script is:inline>
 			try {
 				var s = localStorage.getItem('theme');
-				if (s === 'dark') document.documentElement.classList.add('dark');
-				else document.documentElement.classList.remove('dark');
+				if (s === 'light') document.documentElement.classList.remove('dark');
+				else document.documentElement.classList.add('dark');
 			} catch (_) {
-				document.documentElement.classList.remove('dark');
+				document.documentElement.classList.add('dark');
 			}
 		</script>
 		<ClientRouter />
