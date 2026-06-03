@@ -6,7 +6,7 @@
       "name": "astro-antiques",
       "dependencies": {
         "@vercel/analytics": "^2.0.1",
-        "astro": "^6.3.7",
+        "astro": "6.3.7",
       },
     },
   },
