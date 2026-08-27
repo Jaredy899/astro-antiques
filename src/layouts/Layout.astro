@@ -151,6 +151,88 @@ body.antiques-body {
   outline-offset: 2px;
 }
 
+/* ----- Announcement ----- */
+.announcement-bar {
+  width: 100%;
+  max-width: 100%;
+  background: var(--cream-dark);
+  border-bottom: 1px solid var(--card-border);
+  border-left: 4px solid var(--primary);
+  box-sizing: border-box;
+}
+.announcement-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.15rem 1.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+.announcement-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--primary);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+.announcement-text {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.announcement-text strong {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 1.15em;
+}
+.announcement-sep {
+  margin: 0 0.5rem;
+  color: var(--card-border);
+}
+.announcement-address {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+.announcement-address:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.announcement-note {
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+  font-style: italic;
+}
+@media (max-width: 640px) {
+  .announcement-sep {
+    display: none;
+  }
+  .announcement-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  .announcement-address {
+    white-space: normal;
+  }
+}
+
 /* ----- Masthead ----- */
 .site-header {
   width: 100%;
