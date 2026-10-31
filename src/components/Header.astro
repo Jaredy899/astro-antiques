@@ -1,14 +1,22 @@
 ---
 import { Image } from 'astro:assets';
 import ThemeToggle from "./ThemeToggle.astro";
+import AddressLink from "./AddressLink.astro";
 ---
 
 <header class="site-header" role="banner">
-  <div class="theme-toggle-wrap">
-    <ThemeToggle />
+  <div class="masthead-bar">
+    <div class="masthead-bar-inner">
+      <AddressLink class="masthead-link masthead-address">227 W Main St, Abingdon, VA</AddressLink>
+      <a href="tel:276-477-1515" class="masthead-link masthead-phone">276-477-1515</a>
+      <div class="theme-toggle-wrap">
+        <ThemeToggle />
+      </div>
+    </div>
   </div>
   <div class="header-inner">
     <div class="logo-wrap">
+      <span class="logo-rule" aria-hidden="true"></span>
       <Image
         src="/images/logo.webp"
         alt="Abingdon Antiques and More"
@@ -18,6 +26,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         loading="eager"
         decoding="async"
       />
+      <span class="logo-rule" aria-hidden="true"></span>
     </div>
   </div>
-</header> 
+</header>
