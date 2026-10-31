@@ -189,14 +189,16 @@ body.antiques-body {
   margin: 0 0.5rem;
   color: var(--card-border);
 }
-.announcement-address {
+.announcement-address,
+.announcement-link {
   color: var(--primary);
   text-decoration: none;
   font-weight: 500;
   white-space: nowrap;
   transition: color var(--transition);
 }
-.announcement-address:hover {
+.announcement-address:hover,
+.announcement-link:hover {
   color: var(--primary-light);
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -211,7 +213,8 @@ body.antiques-body {
     align-items: center;
     gap: 0.2rem;
   }
-  .announcement-address {
+  .announcement-address,
+  .announcement-link {
     white-space: normal;
   }
 }
