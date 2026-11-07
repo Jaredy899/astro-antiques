@@ -175,19 +175,36 @@ body.antiques-body {
 }
 .announcement-text {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  row-gap: 0.15rem;
   font-size: 1.0625rem;
   line-height: 1.55;
   color: var(--ink);
+}
+.announcement-lead,
+.announcement-phrase {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.announcement-lead {
+  margin-right: 0.35em;
 }
 .announcement-text strong {
   font-family: var(--font-serif);
   font-optical-sizing: auto;
   font-weight: 600;
   font-size: 1.15em;
+  white-space: nowrap;
 }
 .announcement-sep {
   margin: 0 0.5rem;
   color: var(--card-border);
+}
+.announcement-status {
+  white-space: nowrap;
 }
 .announcement-address,
 .announcement-link {
@@ -208,10 +225,14 @@ body.antiques-body {
     display: none;
   }
   .announcement-text {
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.2rem;
+  }
+  .announcement-lead,
+  .announcement-phrase {
+    white-space: normal;
+    max-width: 100%;
   }
   .announcement-address,
   .announcement-link {
